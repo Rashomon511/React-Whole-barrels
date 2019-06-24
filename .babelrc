@@ -1,0 +1,17 @@
+{
+  "presets": [ // 将es6的语法翻译成es5语法
+      [
+        "@babel/preset-env", {
+          "targets": {
+             "chrome": "67",
+          },
+          "useBuiltIns": "usage", // 做@babel/polyfill补充时，按需补充，用到什么才补充什么,
+          "corejs": "2",
+        }
+      ],
+  "@babel/preset-react",
+],
+"plugins": [
+  "@babel/plugin-proposal-class-properties"
+  ]
+}
