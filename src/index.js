@@ -5,6 +5,7 @@ import ReactDom from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './home/index';
 import Login from './login/index';
+import './index.less';
 
 class App extends Component {
 	render() {

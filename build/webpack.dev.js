@@ -29,6 +29,23 @@ module.exports = {
         {
             test: /\.css$/,
             use: ['style-loader', 'css-loader', 'postcss-loader']
+        },
+        {
+            test: /\.(png|jpg|gif|svg|jpeg)$/,
+            use: {
+                loader: 'url-loader',
+                options: {
+                    name: '[name]_[hash].[ext]', // placeholder 占位符
+                    outputPath: 'images/', // 打包文件名
+                    limit: 204800, // 小于200kb则打包到js文件里，大于则打包到imgages里
+                },
+            },
+        },
+        {
+            test: /\.(eot|ttf|svg)$/,
+            use: {
+                loader: 'file-loader',
+            },
         }]
     },
     plugins: [                     // 插件

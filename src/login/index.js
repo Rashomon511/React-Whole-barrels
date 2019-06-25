@@ -6,6 +6,7 @@ class Login extends Component {
 	render() {
 		return (
 			<div className="login">
+				<i className="iconfont icon-changjingguanli" />
 				<Link to='/home'>to Home</Link>
 			</div>
 		);
