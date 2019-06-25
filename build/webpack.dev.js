@@ -15,14 +15,28 @@ module.exports = {
             use: [{
                 loader: 'babel-loader', // 只是babel和webpack之间的桥梁，并不会将代码转译
             }]
+        }, {
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: ['style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 2
+                    }
+                }, 'less-loader', 'postcss-loader']
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader']
         }]
-    },               
+    },
     plugins: [                     // 插件
         new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
             template: 'src/index.html',
         }),
         new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
-    ],              
+    ],
     output: {
         filename: 'bundle.js',  // 打包后文件名称
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
