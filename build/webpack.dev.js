@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',      // 模式，表示dev环境
+    devtool:"cheap-module-eval-source-map",
     entry: {                  // 入口文件
         //实现刷新浏览器webpack-hot-middleware/client?noInfo=true&reload=true 是必填的
         main: ['webpack-hot-middleware/client?noInfo=true&reload=true', './src/index.js']
