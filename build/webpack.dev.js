@@ -1,4 +1,6 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',      // 模式，表示dev环境
@@ -15,7 +17,12 @@ module.exports = {
             }]
         }]
     },               
-    plugins: [],              // 插件
+    plugins: [                     // 插件
+        new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
+            template: 'src/index.html',
+        }),
+        new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
+    ],              
     output: {
         filename: 'bundle.js',  // 打包后文件名称
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
