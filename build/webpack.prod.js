@@ -35,7 +35,10 @@ const prodConfig = {
 			chunkFilename: '[name].chunk.css'
 		})
     ],
-    output: {}
+    output: {
+        filename: '[name].[contenthash].js',  // entry对应的key值
+        chunkFilename: '[name].[contenthash].js',  // 间接引用的文件会走这个配置
+    },
 }
 
 module.exports = merge.smart(commonConfig, prodConfig)

@@ -41,8 +41,6 @@ const commonConfig = {
         new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
     ],
     output: {
-        publicPath: "/",
-        filename: 'bundle.js',  // 打包后文件名称
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
     }
 }

@@ -34,7 +34,11 @@ const devConfig = {
         new webpack.NamedModulesPlugin(),  //用于启动HMR时可以显示模块的相对路径
         new webpack.HotModuleReplacementPlugin(), // 开启模块热更新，热加载和模块热更新不同，热加载是整个页面刷新
     ],
-    output: {}
+	output: {
+        publicPath: "/",
+		filename: '[name].js',
+		chunkFilename: '[name].js',
+	}
 }
 
 module.exports = merge.smart(commonConfig, devConfig)
