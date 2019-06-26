@@ -1,6 +1,30 @@
+const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+
+const plugins = [
+    new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
+        template: 'src/index.html',
+    }),
+    new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
+];
+
+const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
+files.forEach((file) => {
+	if (/.*\.dll.js/.test(file)) {
+		plugins.push(new AddAssetHtmlWebpackPlugin({
+			filepath: path.resolve(__dirname, '../dll', file),
+		}));
+	}
+	if (/.*\.manifest.json/.test(file)) {
+		plugins.push(new webpack.DllReferencePlugin({
+			manifest: path.resolve(__dirname, '../dll', file),
+		}));
+	}
+});
 
 const commonConfig = {
     resolve: {
@@ -41,12 +65,7 @@ const commonConfig = {
             },
         }]
     },
-    plugins: [                     
-        new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
-            template: 'src/index.html',
-        }),
-        new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
-    ],
+    plugins,
     output: {
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
     }
