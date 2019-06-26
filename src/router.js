@@ -5,8 +5,8 @@ import {
   Route,
   Switch,
 } from 'dva/router';
-import Home from './home/index';
-import Login from './login/index';
+import Home from './home';
+import Login from './login';
 import './index.less';
 
 const {ConnectedRouter} = routerRedux;
