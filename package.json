@@ -12,7 +12,6 @@
     "dev-build": "webpack --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
     "dll": "webpack --config ./build/webpack.dll.js"
-
   },
   "repository": {
     "type": "git",
@@ -67,6 +66,7 @@
     "react-dom": "^16.8.6",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }
