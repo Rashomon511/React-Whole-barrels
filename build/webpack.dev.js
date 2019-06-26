@@ -5,11 +5,28 @@ const commonConfig = require('./webpack.common.js');
 
 const devConfig = {
     mode: 'development',      // 模式，表示dev环境
-    devtool:"cheap-module-eval-source-map",
+    devtool: "cheap-module-eval-source-map",
     entry: {                  // 入口文件
         //实现刷新浏览器webpack-hot-middleware/client?noInfo=true&reload=true 是必填的
         main: ['webpack-hot-middleware/client?noInfo=true&reload=true', './src/index.js']
-    },  
+    },
+    module: {
+        rules: [{
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: ['style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 2
+                    }
+                }, 'less-loader', 'postcss-loader']
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader']
+        },]
+    },
     devServer: {
         contentBase: path.join(__dirname, '../dist')
     },

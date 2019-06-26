@@ -1,4 +1,6 @@
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const commonConfig = require('./webpack.common.js');
 
 const prodConfig = {
@@ -7,8 +9,32 @@ const prodConfig = {
     entry: {
         main: './src/index.js'
     },  
-    module: {},
-    plugins: [],
+    module: {
+        rules: [{
+            test: /\.less$/,
+            exclude: /node_modules/,
+            use: [MiniCssExtractPlugin.loader,
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 2
+                    }
+                }, 'less-loader', 'postcss-loader']
+        },
+        {
+            test: /\.css$/,
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        }]
+    },
+    optimization: {
+		minimizer: [new OptimizeCSSAssetsPlugin({})]
+	},
+	plugins: [
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+			chunkFilename: '[name].chunk.css'
+		})
+    ],
     output: {}
 }
 

@@ -10,20 +10,6 @@ const commonConfig = {
             use: [{
                 loader: 'babel-loader', // 只是babel和webpack之间的桥梁，并不会将代码转译
             }]
-        }, {
-            test: /\.less$/,
-            exclude: /node_modules/,
-            use: ['style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 2
-                    }
-                }, 'less-loader', 'postcss-loader']
-        },
-        {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader', 'postcss-loader']
         },
         {
             test: /\.(png|jpg|gif|jpeg)$/,
