@@ -11,8 +11,9 @@ const app = express();  // 生成一个实例
 const DIST_DIR = path.resolve(__dirname, '../', 'dist');  // 设置静态访问文件路径
 
 let devMiddleware = webpackDevMiddleware(complier, {
-    quiet: true, //向控制台显示任何内容
-    noInfo: true
+    quiet: true,
+    noInfo: true,
+    stats: 'minimal'
 })
 
 let hotMiddleware = webpackHotMiddleware(complier, {

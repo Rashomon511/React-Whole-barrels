@@ -9,7 +9,11 @@ const plugins = [
     new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
         template: 'src/index.html',
     }),
-    new CleanWebpackPlugin(), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
+    new CleanWebpackPlugin({
+        root: path.resolve(__dirname, '../dist'),
+        verbose: true,
+        dry: false
+    }), // 打包后先清除dist文件，先于HtmlWebpackPlugin运行
 ];
 
 const files = fs.readdirSync(path.resolve(__dirname, '../dll'));
@@ -66,6 +70,9 @@ const commonConfig = {
         }]
     },
     plugins,
+    performance: {
+        hints: false
+    },
     output: {
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
     }
