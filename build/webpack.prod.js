@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const WorkboxPlugin = require('workbox-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
 
 const prodConfig = {
@@ -44,7 +44,10 @@ const prodConfig = {
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production'),
+          })
     ],
     optimization: {
         splitChunks: {
