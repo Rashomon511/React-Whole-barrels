@@ -45,6 +45,7 @@
     "@babel/polyfill": "^7.4.4",
     "antd": "^3.19.8",
     "babel-plugin-import": "^1.12.0",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.9",
     "dva": "^2.4.1",
     "history": "^4.9.0",

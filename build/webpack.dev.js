@@ -67,6 +67,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(), // 开启模块热更新，热加载和模块热更新不同，热加载是整个页面刷新
     ],
     output: {
+        publicPath: "/",
         filename: 'bundle.js',  // 打包后文件名称
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
     }
