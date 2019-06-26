@@ -4,7 +4,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const commonConfig = require('./webpack.common.js');
 
 const prodConfig = {
-    mode: "production",  // 只要在生产模式下， 代码就会自动压缩
+    mode: "production",  // 只要在生产模式下， 代码就会自动压缩,自动开启tree shaking
     devtool:"cheap-module-source-map",
     entry: {
         main: './src/index.js'
