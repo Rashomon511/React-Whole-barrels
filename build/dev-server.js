@@ -12,7 +12,6 @@ const DIST_DIR = path.resolve(__dirname, '../', 'dist');  // 设置静态访问�
 
 let devMiddleware = webpackDevMiddleware(complier, {
     quiet: true,
-    noInfo: true,
     stats: 'minimal'
 })
 

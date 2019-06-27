@@ -1,11 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
+const WebpackBar = require('webpackbar');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 
 const plugins = [
+    new WebpackBar(),        // webpack打包进度条
+    new FriendlyErrorsWebpackPlugin(), // 能够更好在终端看到webapck运行的警告和错误
     new HtmlWebpackPlugin({   // 向dist文件中自动添加模版html
         template: 'src/index.html',
     }),
