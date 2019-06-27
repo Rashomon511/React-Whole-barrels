@@ -1,6 +1,6 @@
 
 import dva from 'dva';
-import { createBrowserHistory } from 'history';
+import {createBrowserHistory} from 'history';
 import qhistory from 'qhistory';
 import {stringify, parse} from 'qs';
 // 1. Initialize

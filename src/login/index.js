@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'dva';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import {Form, Icon, Input, Button} from 'antd';
 import './index.less';
 @connect(state => ({login: state.login}))
 @Form.create()
@@ -21,34 +21,34 @@ class Login extends Component {
 		});
 	};
 	render() {
-		const { getFieldDecorator } = this.props.form;
+		const {getFieldDecorator} = this.props.form;
 		return (
 			<div className="login">
 				<Form onSubmit={this.handleSubmit} className="login-form">
 					<Form.Item>
 						{getFieldDecorator('username', {
-							rules: [{ required: true, message: 'Please input your username!' }],
+							rules: [{required: true, message: 'Please input your username!'}]
 						})(
 							<Input
-								style={{ width: 200 }}
-								prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+								style={{width: 200}}
+								prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}} />}
 								placeholder="admin"
 							/>,
 						)}
 					</Form.Item>
 					<Form.Item>
 						{getFieldDecorator('password', {
-							rules: [{ required: true, message: 'Please input your Password!' }],
+							rules: [{required: true, message: 'Please input your Password!'}]
 						})(
 							<Input
-								style={{ width: 200 }}
-								prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+								style={{width: 200}}
+								prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}} />}
 								type="password"
 								placeholder="123"
 							/>,
 						)}
 					</Form.Item>
-					<Button style={{ width: 200 }} type="primary" htmlType="submit" className="login-form-button">
+					<Button style={{width: 200}} type="primary" htmlType="submit" className="login-form-button">
 						Log in
 					</Button>
 				</Form>
