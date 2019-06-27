@@ -52,6 +52,11 @@ const commonConfig = {
             }]
         },
         {
+			test: /\.tsx?$/,
+			use: 'ts-loader',
+			exclude: /node_modules/
+		},
+        {
             test: /\.(png|jpg|gif|jpeg)$/,
             use: {
                 loader: 'url-loader',
