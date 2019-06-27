@@ -1,4 +1,4 @@
-## React-WHOLE-BARRELS
+## React-Whole-barrels
 >  基于react + react-router +dva + es6 + less + antd的脚手架
 
 ### 快速开始
