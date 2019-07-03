@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'dva';
-import { Layout, Menu, Icon } from 'antd';
+import React, {Component} from 'react';
+import {connect} from 'dva';
+import {Layout, Menu, Icon} from 'antd';
 import Greeter from './utils.tsx';
 import './index.less';
 
@@ -43,17 +43,9 @@ class Home extends Component {
 					</Menu>
 				</Sider>
 				<Layout>
-<<<<<<< HEAD
 					<Header style={{background: '#fff', padding: 0}} />
 					<Content style={{margin: '24px 16px 0'}}>
-						<div style={{padding: 24, background: '#fff', minHeight: 360}}>content</div>
-=======
-					<Header style={{ background: '#fff', padding: 0 }} />
-					<Content style={{ margin: '24px 16px 0' }}>
-						<div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-							{greeter.greet()}
-						</div>
->>>>>>> ts配置
+						<div style={{padding: 24, background: '#fff', minHeight: 360}}>{greeter.greet()}</div>
 					</Content>
 					<Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
 				</Layout>

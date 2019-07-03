@@ -3,7 +3,10 @@
         "browser": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "eslint-config-alloy/typescript"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -15,8 +18,9 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "parser": "typescript-eslint-parser",
     "plugins": [
-        "react"
+        "typescript"
     ],
     "rules": {
         "prefer-destructuring": [
@@ -88,7 +92,14 @@
         "react/forbid-prop-types": "off",
         "jsx-a11y/click-events-have-key-events": "off",
         "jsx-a11y/no-static-element-interactions": "off",
-        "no-unused-vars": "off"
-    },
-    "parser": "babel-eslint"
+        "no-unused-vars": "off",
+        "eqeqeq": [
+            "error",
+            "always",
+            {
+                "null": "ignore"
+            }
+        ],
+        "typescript/class-name-casing": "error"
+    }
 }
