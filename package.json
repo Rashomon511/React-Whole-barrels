@@ -51,12 +51,9 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
-<<<<<<< HEAD
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
-=======
     "ts-loader": "^6.0.4",
->>>>>>> intall
     "url-loader": "^2.0.0",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.5",
