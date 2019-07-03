@@ -79,6 +79,7 @@ const commonConfig = {
         hints: false
     },
     output: {
+        publicPath: "/",
         path: path.resolve(__dirname, '../dist') // 打包后文件夹存放路径
     }
 }

@@ -45,10 +45,7 @@ const prodConfig = {
             clientsClaim: true,
             skipWaiting: true
         }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-        }),
-        new webpack.HashedModuleIdsPlugin(),  //根据模块的相对路径生成一个四位数的hash
+        new webpack.HashedModuleIdsPlugin(),  //根据模块的相对路径生成一个四位数的hash,实现持久化缓存
     ],
     optimization: {
         splitChunks: {
