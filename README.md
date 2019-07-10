@@ -18,6 +18,8 @@
 - [x] tree shaking
 - [x] DellPlugin
 - [x] PWA
+- [x] eslint
+- [x] stylelint
 
 ### 快速开始
 ```javascript
