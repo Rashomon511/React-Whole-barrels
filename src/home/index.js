@@ -19,7 +19,7 @@ class Home extends Component {
 						console.log(broken);
 					}}
 					onCollapse={(collapsed, type) => {
-						console.log(collapsed, type);
+						console.log(collapsed, type); 
 					}}
 				>
 					<div className="logo" />
