@@ -37,7 +37,7 @@ files.forEach((file) => {
 
 const commonConfig = {
     resolve: {
-        extensions: ['.js', 'ts', '.jsx', 'tsx', ], // 当通过import child from './child/child'形式引入文件时，会先去寻找.js为后缀当文件，再去寻找.jsx为后缀的文件
+        extensions: ['.ts', '.tsx','.js', '.jsx'], // 当通过import child from './child/child'形式引入文件时，会先去寻找.js为后缀当文件，再去寻找.jsx为后缀的文件
         mainFiles: ['index', 'view'], // 如果是直接引用一个文件夹，那么回去直接找index开头的文件，如果不存在再去找view开头的文件
         // alias: {
         //     home: path.resolve(__dirname, '../src/home') // 配置别名可以加快webpack查找模块的速度, 引入home其实是引入../src/home

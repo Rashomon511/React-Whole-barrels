@@ -8,7 +8,7 @@
     "*.less"
   ],
   "scripts": {
-    "start": "node ./build/dev-server.js",
+    "start": "webpack-dev-server --config ./build/webpack.dev.js",
     "dev-build": "webpack --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
     "dll": "webpack --config ./build/webpack.dll.js",
@@ -71,13 +71,11 @@
     "@babel/plugin-proposal-decorators": "^7.4.4",
     "@babel/polyfill": "^7.4.4",
     "add-asset-html-webpack-plugin": "^3.1.3",
-    "antd": "^3.19.8",
     "babel-plugin-import": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^2.6.9",
     "css-split-webpack-plugin": "^0.2.6",
-    "dva": "^2.4.1",
     "fs": "^0.0.1-security",
     "history": "^4.9.0",
     "html-webpack-plugin": "^3.2.0",
