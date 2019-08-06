@@ -4,14 +4,43 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
+
+const entry = {
+    main: './src/index.js'
+}
+
+const plugins =  [
+    new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[name].chunk.css'
+    }),
+    new CSSSplitWebpackPlugin({
+        size: 4000,
+        filename: '[name]-[part].[ext]'
+    }),
+    new WorkboxPlugin.GenerateSW({
+        clientsClaim: true,
+        skipWaiting: true
+    }),
+    new webpack.HashedModuleIdsPlugin(),  //根据模块的相对路径生成一个四位数的hash,实现持久化缓存
+]
+
+Object.keys(entry).forEach(item => {
+    plugins.push(
+      new HtmlWebpackPlugin({
+        template: 'src/index.html',
+        filename: `${item}.html`,
+        chunks: ['runtime', 'vendors', item]  // 只引入需要的打包生成文件，不需要引入其他多余的文件
+      })
+    )
+  });
 
 const prodConfig = {
     mode: "production",  // 只要在生产模式下， 代码就会自动压缩,自动开启tree shaking
     devtool: "cheap-module-source-map",
-    entry: {
-        main: './src/index.js'
-    },
+    entry,
     module: {
         rules: [{
             test: /\.less$/,
@@ -32,21 +61,7 @@ const prodConfig = {
     optimization: {
         minimizer: [new OptimizeCSSAssetsPlugin({})]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[name].chunk.css'
-        }),
-        new CSSSplitWebpackPlugin({
-            size: 4000,
-            filename: '[name]-[part].[ext]'
-        }),
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true
-        }),
-        new webpack.HashedModuleIdsPlugin(),  //根据模块的相对路径生成一个四位数的hash,实现持久化缓存
-    ],
+    plugins,
     optimization: {
         splitChunks: {
             chunks: "all",    // 只对异步引入代码起作用，设置all时并同时配置vendors才对两者起作用
