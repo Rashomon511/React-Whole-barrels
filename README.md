@@ -34,3 +34,4 @@ npm run dev-build // 开发环境打包
 ### 最后
 如果你在配置的过程中发现了问题或者错误，请告诉我！！谢谢 ！！
 如果觉得对您有帮助，欢迎给个star! ! 谢谢 ！！
+![](/src/static/images/banner.png)
