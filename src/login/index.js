@@ -49,7 +49,7 @@ class Login extends Component {
 						)}
 					</Form.Item>
 					<Button style={{width: 200}} type="primary" htmlType="submit" className="login-form-button">
-						Log in
+						Log In
 					</Button>
 				</Form>
 			</div>
