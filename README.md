@@ -5,6 +5,8 @@
 本项目是利用webpack搭建的搭建一个基于react + react-router +dva + es6 + less + antd用于中后台开发的脚手架,
 主要是希望通过配置本项目,来对webpack工具有一个更加深入和全面的认识,项目的完整流程也记录在了[利用webpack从零搭建一个脚手架](https://juejin.im/post/5d145d796fb9a07ef56247c4)中，当然本文也有许多不完善的地方，例如mock、eslint、styleLint等等都没有添加上去，后续我会加上以及不断完善优化该项目，感兴趣的同学可以持续关注哦！
 
+
+
 ### 功能实现
 - [x] Es6/7
 - [x] react/react-router/dva
@@ -29,6 +31,12 @@ npm run dll   // dllplugin进行打包
 npm run start // 开发模式启动项目
 npm run build // 生产环境项目打包
 npm run dev-build // 开发环境打包
+```
+
+### 其他配置
+```javascript
+git checkout TS-React // 切换到ts配置
+git checkout Multiplt-Page        // 切换到多页面配置
 ```
 
 ### 最后
