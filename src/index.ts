@@ -8,6 +8,5 @@ const Jim: Person = {
     age: 14
 }
 
-console.log(Jim)
 
 
