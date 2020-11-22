@@ -1,104 +1,92 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["eslint:recommended", "eslint-config-alloy/typescript"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "eslint-config-alloy/typescript"
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "parser": "typescript-eslint-parser",
+  "plugins": [
+    "typescript",
+    "eslint-plugin-react",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-import"
+  ],
+  "rules": {
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": true,
+        "array": false
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "parser": "typescript-eslint-parser",
-    "plugins": [
-        "typescript"
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
     ],
-    "rules": {
-        "prefer-destructuring": [
-            "error",
-            {
-                "object": true,
-                "array": false
-            },
-            {
-                "enforceForRenamedProperties": false
-            }
-        ],
-        "no-unused-vars": [
-            "error",
-            {
-                "vars": "all",
-                "args": "none",
-                "ignoreRestSiblings": true
-            }
-        ],
-        "brace-style": [
-            "error",
-            "stroustrup"
-        ],
-        "line-comment-position": [
-            "error",
-            {
-                "position": "above"
-            }
-        ],
-        "object-curly-spacing": [
-            "error",
-            "never"
-        ],
-        "max-len": [
-            "error",
-            {
-                "code": 120,
-                "tabWidth": 2,
-                "ignoreComments": true,
-                "ignoreUrls": true,
-                "ignoreRegExpLiterals": true,
-                "ignoreStrings": true,
-                "ignoreTemplateLiterals": true
-            }
-        ],
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
-        "no-unused-expressions": [
-            "error",
-            {
-                "allowShortCircuit": true,
-                "allowTernary": true,
-                "allowTaggedTemplates": true
-            }
-        ],
-        "react/jsx-filename-extension": [
-            "error",
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ],
-        "react/require-default-props": "off",
-        "react/forbid-prop-types": "off",
-        "jsx-a11y/click-events-have-key-events": "off",
-        "jsx-a11y/no-static-element-interactions": "off",
-        "eqeqeq": [
-            "error",
-            "always",
-            {
-                "null": "ignore"
-            }
-        ],
-        "typescript/class-name-casing": "error"
-    }
+    "brace-style": ["error", "stroustrup"],
+    "line-comment-position": [
+      "error",
+      {
+        "position": "above"
+      }
+    ],
+    "object-curly-spacing": ["error", "never"],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreUrls": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "comma-dangle": ["error", "never"],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/require-default-props": "off",
+    "react/forbid-prop-types": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "typescript/class-name-casing": "error"
+  }
 }

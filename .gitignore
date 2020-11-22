@@ -1,9 +1,6 @@
 .DS_Store
 *.log
 node_modules/
-dist/
-dll/
-lib/
 .cache/
 .vscode/
 .editorconfig
@@ -15,4 +12,4 @@ package-lock.json
 .conf.js
 .vs/
 .history
-
+dist
